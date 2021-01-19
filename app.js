@@ -9,7 +9,7 @@ var express                 = require("express"),
     userLib                 = require('./lib/user.lib.js'),  
     async                   = require("async"),
     passportLocalMongoose   = require("passport-local-mongoose");
-
+var _= require("lodash");
   
 const PORT=2000;
 const MONGO_URL="mongodb://localhost/attendance";
@@ -53,9 +53,15 @@ filter={
    attendanceLib.findbyId(filter,function(err,docs){
       if(err){
           res.send(err)
+      }else if(_.isEmpty(docs)){
+
+        res.render("home",{"attendanceData":""});
       }
+
       else{
-        res.render("home",{attendanceData:docs});
+          console.log(docs);
+        res.render("home",{"attendanceData":docs});
+    
       }
    });
 
