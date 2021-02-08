@@ -110,10 +110,14 @@ app.post("/username/:user/password/:pass/save",function(req,res){
             ],
             (err)=> {
                 if(err){
-                    console.log(err)
+                    return console.log(err)//
                 }
                 else{
-                    res.redirect(req.body.url);
+                   //return res.redirect(req.body.url);
+                //    return res.json({
+                //        result:"success",
+                //    })
+                return res;
                 }
             });
     }
