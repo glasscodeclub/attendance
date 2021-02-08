@@ -11,7 +11,6 @@ const { fromPairs } = require("lodash");
          document.execCommand("copy");
          document.body.removeChild(dummy);
      };copyToClipboard(c);
-    //<iframe name="formTarget" style="display:none;"></iframe> 
      var iframe=document.createElement("IFRAME");
     iframe.setAttribute("name","formTarget");
     iframe.setAttribute("style","display:none");

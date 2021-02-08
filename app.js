@@ -51,16 +51,16 @@ filter={
 }
    attendanceLib.findbyId(filter,function(err,docs){
       if(err){
-          res.send(err)
+          return res.send(err)
       }else if(_.isEmpty(docs)){
 
-        res.render("home",{"attendanceData":""});
+        return res.render("home",{"attendanceData":""});
       }
 
       else{
           console.log(docs);
-        res.render("home",{"attendanceData":docs});
-    
+       // return res.render("home",{"attendanceData":docs});
+         return res.json(docs)
       }
    });
 
@@ -68,7 +68,7 @@ filter={
 
 app.post("/username/:user/password/:pass/save",function(req,res){
     console.log(req.body)
-    if(req.body){
+    if(1){//
             let result={};
             let filter={
                 userFilter:{
@@ -96,6 +96,8 @@ app.post("/username/:user/password/:pass/save",function(req,res){
                         username:req.params.id,
                         attendance_date:req.body.date,
                         data:[req.body.data],
+                        url:req.body.url,
+                        taker:req.body.taker,
                     };    
                     attendanceLib.save(new_attendance,function(err){
                         if(err){
@@ -113,11 +115,7 @@ app.post("/username/:user/password/:pass/save",function(req,res){
                     return console.log(err)//
                 }
                 else{
-                   //return res.redirect(req.body.url);
-                //    return res.json({
-                //        result:"success",
-                //    })
-                return res;
+                  return res.redirect("http://localhost:2000/");//change this to normal
                 }
             });
     }
