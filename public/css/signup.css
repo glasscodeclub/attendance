@@ -12,19 +12,16 @@ body {
 
 h1{
     text-align: center;
-    margin-top: -2%;
+    margin-top: -4%;
     margin-left: 30%;
 }
 
 .logo {
-    width: 8%;
+    width: 6%;
     margin: 1rem 3rem;
 }
 .signup-image{
     width: 80%;
-    /* position: absolute;
-    right: 5%;
-    top: 18%; */
 }
 
 /* Form CSS*/
@@ -46,7 +43,7 @@ h1{
 }
 
 .element{
-    margin: 0.8rem auto;
+    margin: 0.5rem auto;
     width: 100%;
 }
 
