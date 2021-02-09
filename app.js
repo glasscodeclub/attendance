@@ -92,12 +92,23 @@ app.post("/username/:user/password/:pass/save",function(req,res){
                     });
                 },
                 (callback)=> {
+
+                    let attendees = req.body.data.split("@");
+                    attendees.pop();
+                // In format of 2K19/IT/001@Ramesh Kumar 
+                    // attendees.forEach(function(attendee){
+                    //     var rollNo = attendee.substring(0, 11);
+                    //     var name = attendee.substring(12);
+                    //     attendee=rollNo+"@"+name;
+                    // });
                     let new_attendance={
                         username:req.params.id,
                         attendance_date:req.body.date,
-                        data:[req.body.data],
+                        data:attendees,
                         url:req.body.url,
                         taker:req.body.taker,
+                        you: req.body.you,
+                        
                     };    
                     attendanceLib.save(new_attendance,function(err){
                         if(err){
