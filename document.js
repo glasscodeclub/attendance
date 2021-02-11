@@ -3,13 +3,21 @@ const { fromPairs } = require("lodash");
    // for saving to database
     let c="";let dateMeet="";dateMeet+=new Date().toLocaleString("en-US");document.getElementsByClassName('uArJ5e UQuaGc kCyAyd QU4Gid foXzLb IeuGXd')[0].click();
     let taker=document.getElementsByClassName('GvcuGe')[0].childNodes[0].innerText;
+    taker=taker.substring(0, taker.length-6);
     let you = document.getElementsByClassName('GvcuGe')[0].childNodes[1].innerText;
-    for(var i=1;i<document.getElementsByClassName('GvcuGe')[0].childNodes.length;++i){
+    var index = you.indexOf("Your presentation");
+    if(index!=-1){
+      you=you.substring(0, index-2);
+    }
+    c+=you+"@";
+    for(var i=2;i<document.getElementsByClassName('GvcuGe')[0].childNodes.length;++i){
     var attendee=(document.getElementsByClassName('GvcuGe')[0].childNodes[i].innerText);
     // for handling \r\n (You)
-    var idx = attendee.indexOf("\r\n")
+    var idx = attendee.indexOf("Presentation")
     if(idx!=-1){
-      attendee=attendee.substring(0, idx);
+      attendee=attendee.substring(0, idx-2);
+      console.log(attendee);
+
     }
     c+=attendee+"@";
    }

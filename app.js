@@ -95,11 +95,12 @@ app.post("/username/:user/password/:pass/save",function(req,res){
 
                     let attendees = req.body.data.split("@");
                     attendees.pop();
-                // In format of 2K19/IT/001@Ramesh Kumar 
+                 
                     // attendees.forEach(function(attendee){
-                    //     var rollNo = attendee.substring(0, 11);
-                    //     var name = attendee.substring(12);
-                    //     attendee=rollNo+"@"+name;
+                    //     var idx = attendee.indexOf("\r\n")
+                    // if(idx!==-1){
+                    //      attendee=attendee.substring(0, idx);
+                    //     }
                     // });
                     let new_attendance={
                         username:req.params.id,
@@ -110,6 +111,7 @@ app.post("/username/:user/password/:pass/save",function(req,res){
                         you: req.body.you,
                         
                     };    
+                   console.log(new_attendance);
                     attendanceLib.save(new_attendance,function(err){
                         if(err){
                             console.log(err);
