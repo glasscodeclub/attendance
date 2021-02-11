@@ -1,7 +1,119 @@
-<h1> This is dashboard</h1>
+<!-- --------------------BOOTSTRAP----------------------- -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<link rel="stylesheet" href="../public/css/home.css">
+
+<%- include("./partials/header.ejs") %>
+<div class="wrapper">
+    <table class="table table-bordered table-success table-striped table-hover  border-dark" id="tab">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Meet Link</th>
+            <th scope="col">No. of Participants</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Creator</th>
+            <th scope="col">Controls</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>xxx-yyy-zzz</td>
+            <td>53</td>
+            <td>01/01/2021</td>
+            <td>5:30 PM</td>
+            <td>XYZ</td>
+            <td>
+                <button class="controls"><i class="far fa-trash-alt"></i></button>
+                <button class="controls"><i class="fas fa-pen"></i></button>
+                <button class="controls"><i class="fab fa-readme"></i></button>
+            </td>
+        </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>aaa-bbb-ccc</td>
+            <td>67</td>
+            <td>02/02/2021</td>
+            <td>6:00 PM</td>
+            <td>ABC</td>
+            <td>
+                <button class="controls"><i class="far fa-trash-alt"></i></button>
+                <button class="controls"><i class="fas fa-pen"></i></button>
+                <button class="controls"><i class="fab fa-readme"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>uuu-vvv-www</td>
+            <td>47</td>
+            <td>03/03/2021</td>
+            <td>8:00 AM</td>
+            <td>XYZ</td>
+            <td>
+                <button class="controls"><i class="far fa-trash-alt"></i></button>
+                <button class="controls"><i class="fas fa-pen"></i></button>
+                <button class="controls"><i class="fab fa-readme"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="buttons">
+        <button class="btn btn-outline-success" data-target="#popup" >+ Add Entry</button> 
+        <button class="btn btn-outline-success" onclick="copy()">Copy Code</button> 
+
+      </div>   
+</div>
+<!-- -------POPUP FOR ADDING ELEMENTS------ -->
+
+<div class="popup " id="popup">
+  <div class="popup-header">
+    <div class="title">Add Details</div>
+    <div data-close-button class="close-button">&times;</div>
+  </div>
+  <div class="popup-body">
+    <form class="needs-validation" novalidate >
+      <div>
+        <input type="number" placeholder="S.no" class="form-control element" required>
+          <div class="invalid-feedback">This Field can't be empty</div>
+        </div><br>
+      <div>
+      <input type="text" placeholder="Meetlink" class="form-control element" required>
+        <div class="invalid-feedback">This Field can't be empty</div>
+      </div>
+      <br>
+    <div>
+      <input type="number" placeholder="No. of Participants" class="form-control element" required>
+        <div class="invalid-feedback">This Field can't be empty</div>
+      </div>
+      <br>
+      <div>
+      <input type="date" class="form-control element" required>
+        <div class="invalid-feedback">This Field can't be empty</div>
+      </div>
+      <br>
+      <div>
+      <input type="time" class="form-control element" required>
+        <div class="invalid-feedback">This Field can't be empty</div>
+      </div>
+      <br>
+      <div>
+      <input type="text" placeholder="Creator" class="form-control element" required>
+        <div class="invalid-feedback">This Field can't be empty</div>
+      </div>
+      <br>
+      <button class="btn btn-success" onclick="add()">+ Add</button>
+    </form>
+  </div>
+</div>
+<div id="overlay"></div>
 
 <%=attendanceData%>
 
-<li><a href="/">Sign Up</a></li>
+<!-- <li><a href="/">Sign Up</a></li>
 <li><a href="/logout">Logout!</a></li>
-<li><a href="/login">Login!</a></li>
+<li><a href="/login">Login!</a></li> -->
+
+<script src="https://kit.fontawesome.com/e5a9d749f9.js" crossorigin="anonymous"></script>
+<script src="../public/js/home.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
