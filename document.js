@@ -7,7 +7,7 @@ const { fromPairs } = require("lodash");
     let you = document.getElementsByClassName('GvcuGe')[0].childNodes[1].innerText;
     var index = you.indexOf("Your presentation");
     if(index!=-1){
-      you=you.substring(0, index-2);
+      you=you.substring(0, index-1);
     }
     c+=you+"@";
     for(var i=2;i<document.getElementsByClassName('GvcuGe')[0].childNodes.length;++i){
@@ -15,8 +15,8 @@ const { fromPairs } = require("lodash");
     // for handling \r\n (You)
     var idx = attendee.indexOf("Presentation")
     if(idx!=-1){
-      attendee=attendee.substring(0, idx-2);
-      console.log(attendee);
+      attendee=attendee.substring(0, idx-1);
+ //     console.log(attendee);
 
     }
     c+=attendee+"@";

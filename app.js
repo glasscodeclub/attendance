@@ -59,8 +59,8 @@ filter={
 
       else{
           console.log(docs);
-       // return res.render("home",{"attendanceData":docs});
-         return res.json(docs)
+        return res.render("home",{attendanceData:docs});
+     //    return res.json(docs)
       }
    });
 
@@ -103,7 +103,7 @@ app.post("/username/:user/password/:pass/save",function(req,res){
                     //     }
                     // });
                     let new_attendance={
-                        username:req.params.id,
+                        username:req.params.user,
                         attendance_date:req.body.date,
                         data:attendees,
                         url:req.body.url,
