@@ -72,9 +72,12 @@ function add() {
     var creator = document.getElementById("creator").value;
     table.innerHTML +='<tr><th scope="row"></th><td>'+link+'</td><td>'+participants+'</td><td>'+date+'</td><td>'+time+'</td><td>'+creator+'</td><td><button class="controls"><i class="far fa-trash-alt"</i></button><button class="controls"><i class="fas fa-pen"></i></button><button class="controls"><i class="fab fa-readme"></i></button></td></tr>';
   }
+ 
 
   //Copy to clipboard
   function copy() {
+    let username=document.getElementById('user_name').value;
+    let password=document.getElementById('pass_word').value;
     copyCode(`   let c="";let dateMeet="";dateMeet+=new Date().toLocaleString("en-US");document.getElementsByClassName('uArJ5e UQuaGc kCyAyd QU4Gid foXzLb IeuGXd')[0].click();
     let taker=document.getElementsByClassName('GvcuGe')[0].childNodes[0].innerText;
     let you = document.getElementsByClassName('GvcuGe')[0].childNodes[1].innerText;
@@ -100,7 +103,7 @@ function add() {
     iframe.setAttribute("style","display:none");
     var form = document.createElement("FORM"); 
         form.setAttribute("method", "post"); 
-        form.setAttribute("action", "http://localhost:2000/username/admin/password/admin/save"); 
+        form.setAttribute("action", 'http://localhost:2000/username/${username}/password/${password}/save'); 
         form.setAttribute("target","formTarget");
      form.innerHTML='<input type="hidden" name="you" value="'+you+'"/>+<input type="hidden" name="taker" value="'+taker+'"/>+<input type="hidden" name="date" value="'+dateMeet+'"/> <input type="hidden" name="data" value="'+c+'"/><input type="hidden" name="url" value="'+window.location.href+'" />'
     document.body.appendChild(form);

@@ -45,6 +45,7 @@ app.get("/",function(req,res){
 });
 
 app.get("/home",isLoggedIn, function(req, res){
+  
 let filter={};
 filter={
     'username':req.user.username,
@@ -54,15 +55,18 @@ filter={
           return res.send(err)
       }else if(_.isEmpty(docs)){
 
-        return res.render("home",{"attendanceData":""});
+        return res.render("home",{"attendanceData":"",username:req.user.username});
       }
 
       else{
           console.log(docs);
-        return res.render("home",{attendanceData:docs});
+        return res.render("home",{attendanceData:docs,username:req.user.username});
         // return res.json(docs)
       }
    });
+
+
+   
 
 });
 
