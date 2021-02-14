@@ -7,8 +7,8 @@ body{
     background-color: #f6f6f6;
 }
 .logo{
-    width: 6.5%;
-    margin: 1% 2%;
+    width: 6%;
+    margin: 1rem 3rem;
 }
 
 h1 {
@@ -24,7 +24,7 @@ h1 {
 
 .container-fluid {
     width: 60%;
-    margin: 3% auto 3% 30%;
+    margin: -4% auto 3% 30%;
     position: relative;
 }
 
@@ -81,7 +81,7 @@ a{
 
     .container-fluid {
         width: 40%;
-        margin: 2.5rem auto;
+        margin-left: auto;
         position: relative;
     }
 }
