@@ -60,7 +60,7 @@ filter={
       else{
           console.log(docs);
         return res.render("home",{attendanceData:docs});
-     //    return res.json(docs)
+        // return res.json(docs)
       }
    });
 

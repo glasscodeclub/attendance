@@ -17,20 +17,25 @@
         </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>xxx-yyy-zzz</td>
-            <td>53</td>
-            <td>01/01/2021</td>
-            <td>5:30 PM</td>
-            <td>XYZ</td>
-            <td>
-                <button class="controls"><i class="far fa-trash-alt"></i></button>
-                <button class="controls"><i class="fas fa-pen"></i></button>
-                <button class="controls"><i class="fab fa-readme"></i></button>
-            </td>
+          <% const DateOptions = { day:  "2-digit", month:  "2-digit", year: 'numeric' }; %>
+          <% for(let i=0; i < attendanceData.length; ++i) { %>
+             <tr>
+            <th scope="row"><%= (i+1) %></th>
+            <td><%= attendanceData[i].url %></td>
+            <td><%= attendanceData[i].data.length %></td>
+            <td><%= attendanceData[i].attendance_date.toLocaleDateString('en-GB', DateOptions) %></td>
+            <td><%= attendanceData[i].attendance_date.toLocaleTimeString('en-US') %></td>
+            <td><%= attendanceData[i].taker %></td>
+           <td>
+               <button class="controls"><i class="far fa-trash-alt"></i></button>
+               <button class="controls"><i class="fas fa-pen"></i></button>
+               <button class="controls"><i class="fab fa-readme"></i></button>
+           </td>
         </tr>
-          <tr>
+          <%}%>
+
+          <!-- Error -->
+          <!-- <tr>
             <th scope="row">2</th>
             <td>aaa-bbb-ccc</td>
             <td>67</td>
@@ -55,7 +60,8 @@
                 <button class="controls"><i class="fas fa-pen"></i></button>
                 <button class="controls"><i class="fab fa-readme"></i></button>
             </td>
-          </tr>
+          </tr> -->
+          <!-- error -->
         </tbody>
       </table>
       <div class="buttons">
@@ -108,11 +114,7 @@
 </div>
 <div id="overlay"></div>
 
-<%=attendanceData%>
 
-<!-- <li><a href="/">Sign Up</a></li>
-<li><a href="/logout">Logout!</a></li>
-<li><a href="/login">Login!</a></li> -->
 
 <script src="https://kit.fontawesome.com/e5a9d749f9.js" crossorigin="anonymous"></script>
 <script src="../public/js/home.js"></script>
