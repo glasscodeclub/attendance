@@ -70,6 +70,21 @@ filter={
 
 });
 
+app.get("/home/:id/details", function(req, res){
+    const filter ={
+        _id: req.params.id
+    }
+    attendanceLib.findbyId(filter, function(err, attendance){
+        if(err){
+            console.log(err);
+            return res.json(err);
+        }else{
+            console.log(attendance);
+          return  res.render("meetDetails", {attendanceDataID: attendance});
+        }
+    })
+})
+
 app.post("/username/:user/password/:pass/save",function(req,res){
     console.log(req.body)
     if(1){//
