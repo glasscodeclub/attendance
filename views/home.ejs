@@ -3,13 +3,6 @@
 <link rel="stylesheet" href="../public/css/home.css">
 
 <%- include("./partials/header.ejs") %>
-<!-- state -->
-<input type="text" style="display: none;visibility: hidden;" value="<%= username %>" id="user_name">
-<input type="text" style="display: none;visibility: hidden;" value="" id="pass_word">
-<!-- button.click(()=>{
-     document.getelementbyid('pass_word').value=document.getelementbyid('passwordtext').innerText;
-     copy();
-}) -->
 <div class="wrapper">
     <table class="table table-bordered table-success table-striped table-hover  border-dark" id="tab">
         <thead>
@@ -73,7 +66,7 @@
       </table>
       <div class="buttons">
         <button class="btn btn-outline-success" data-target="#popup" >+ Add Entry</button> 
-        <button class="btn btn-outline-success" onclick="copy()">Copy Code</button> 
+        <button class="btn btn-outline-success"  data-target="#copy-popup">Copy Code</button> 
 
       </div>   
 </div>
@@ -119,8 +112,36 @@
     </form>
   </div>
 </div>
+
 <div id="overlay"></div>
 
+<!-- Popup For Copying Code -->
+
+<div class="popup" id="copy-popup">
+  <div class="popup-header">
+    <div class="title"> lorem ipsum</div>
+    <div class="close-button" data-close-button>&times;</div>
+    </div>
+  <div class="popup-body">
+    <form class="needs-validation" novalidate>
+      <lable for="passwordtext">Enter your Password</label><br>
+        <div>
+          <input type="text" placeholder="Password" class="form-control element" id="passwordtext" required>
+          <div class="invalid-feedback">This field can't be empty</div>
+        </div>
+        <br>
+    </form>
+    <button class="btn btn-outline-success" onclick="getcode()">Get code</button>
+  </div>
+</div>
+
+<!-- state -->
+<input type="text" style="display: none;visibility: hidden;" value="<%= username %>" id="user_name">
+<input type="text" style="display: none;visibility: hidden;" value="" id="pass_word">
+<!-- button.click(()=>{
+     document.getelementbyid('pass_word').value=document.getelementbyid('passwordtext').innerText;
+     copy();
+}) -->
 
 
 <script src="https://kit.fontawesome.com/e5a9d749f9.js" crossorigin="anonymous"></script>
