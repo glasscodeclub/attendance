@@ -75,6 +75,15 @@ function add() {
  
 
   //Copy to clipboard
+
+
+  function getcode() {
+    var pass_word = document.getElementById('pass_word').value;
+    var passwordtext = document.getElementById('passwordtext').innerText;
+    
+    pass_word = passwordtext;
+    copy();
+  }
   function copy() {
     let username=document.getElementById('user_name').value;
     let password=document.getElementById('pass_word').value;
