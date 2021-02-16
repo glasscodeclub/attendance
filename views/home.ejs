@@ -78,13 +78,14 @@
     <div data-close-button class="close-button">&times;</div>
   </div>
   <div class="popup-body">
-    <form class="needs-validation" novalidate >
+    <form class="needs-validation"action="/home"  method="POST"  novalidate>
+      <input type="text" style="display: none;visibility: hidden;" name="user_name" value="<%= username %>" >
       <div>
         <input type="number" placeholder="S.no" class="form-control element" required>
           <div class="invalid-feedback">This Field can't be empty</div>
         </div><br>
       <div>
-      <input type="text" placeholder="Meetlink" class="form-control element" required>
+      <input type="text" name="meet_url" placeholder="Meetlink" class="form-control element" required>
         <div class="invalid-feedback">This Field can't be empty</div>
       </div>
       <br>
@@ -94,21 +95,21 @@
       </div>
       <br>
       <div>
-      <input type="date" class="form-control element" required>
+      <input type="date" name= "entered_date" class="form-control element" required>
         <div class="invalid-feedback">This Field can't be empty</div>
       </div>
       <br>
       <div>
-      <input type="time" class="form-control element" required>
+      <input type="time" name= "entered_time" class="form-control element" required>
         <div class="invalid-feedback">This Field can't be empty</div>
       </div>
       <br>
       <div>
-      <input type="text" placeholder="Creator" class="form-control element" required>
+      <input type="text" name= "entered_taker" placeholder="Creator" class="form-control element" required>
         <div class="invalid-feedback">This Field can't be empty</div>
       </div>
       <br>
-      <button class="btn btn-success" onclick="add()">+ Add</button>
+      <button class="btn btn-success" type="submit">+ Add</button>
     </form>
   </div>
 </div>
