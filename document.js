@@ -57,7 +57,7 @@ const { fromPairs } = require("lodash");
     // form.submit();
 
     //for copy
-      // let c="";c+=new Date().toLocaleString("en-US");document.getElementsByClassName('uArJ5e UQuaGc kCyAyd QU4Gid foXzLb IeuGXd')[0].click();c+='\n'; for(var i=0;i<document.getElementsByClassName('GvcuGe')[0].childNodes.length;++i){c+=Number(i+1)+" "+document.getElementsByClassName('GvcuGe')[0].childNodes[i].innerText+'\n';};function copyToClipboard(text) {
+    //   let c="";c+=new Date().toLocaleString("en-US");document.getElementsByClassName('uArJ5e UQuaGc kCyAyd QU4Gid foXzLb IeuGXd')[0].click();c+='\n'; for(var i=0;i<document.getElementsByClassName('GvcuGe')[0].childNodes.length;++i){c+=Number(i+1)+" "+document.getElementsByClassName('GvcuGe')[0].childNodes[i].innerText+'\n';};function copyToClipboard(text) {
     //     var dummy = document.createElement("textarea");
     //     document.body.appendChild(dummy);
     //      dummy.value = text;

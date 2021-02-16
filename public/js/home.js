@@ -78,10 +78,11 @@ function add() {
 
 
   function getcode() {
-    var pass_word = document.getElementById('pass_word').value;
-    var passwordtext = document.getElementById('passwordtext').innerText;
-    
-    pass_word = passwordtext;
+    var passwordtext = document.getElementById('passwordtext').value;
+     if(passwordtext)
+      document.getElementById('pass_word').value= passwordtext;
+     else
+     document.getElementById('pass_word').value= 'error';
     copy();
   }
   function copy() {
