@@ -4,7 +4,7 @@
 
 <%- include("./partials/header.ejs") %>
 <div class="wrapper">
-    <table class="table table-bordered table-success table-striped table-hover  border-dark" id="tab">
+    <table class="table table-bordered table-success table-striped table-hover table-responsive-lg border-dark" id="tab">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -29,7 +29,7 @@
            <td>
                <button class="controls"><i class="far fa-trash-alt"></i></button>
                <button class="controls"><i class="fas fa-pen"></i></button>
-               <button class="controls"><i class="fab fa-readme"></i></button>
+               <button class="controls" onclick="document.location='/home/<%= attendanceData[i]._id %>/details'"><i class="fab fa-readme"></i></button>
            </td>
         </tr>
           <%}%>

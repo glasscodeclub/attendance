@@ -8,6 +8,10 @@ body{
     background-color: #f6f6f6;
 }
 
+#logo {
+    width: 20%;
+}
+
 .wrapper{
     width: 80%;
     min-width: fit-content;

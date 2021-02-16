@@ -1,1 +1,44 @@
-<%=attendanceDataID%>
+<!-- ---------------------BOOTSTRAP------------------------- -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<link rel="stylesheet" href="../../public/css/meetDetails.css">
+<link rel="stylesheet" href="../../public/css/header.css">
+
+<%- include("./partials/header.ejs") %>
+<div class="wrapper">
+    <table class="table table-bordered table-success table-striped table-hover table-responsive-lg" id="tab">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Present</th>
+          </tr>
+        </thead>
+        <tbody>
+       <% for(let i=0; i< attendanceDataID.data.length; ++i) { %>
+            <tr>
+                <th scope="row"><%= (i+1) %></th>
+                <td><%= attendanceDataID.data[i] %></td>
+                <td><input type="checkbox" name="status" checked></td>
+            </tr>
+        <%}%>
+          <!-- <tr>
+            <th scope="row">1</th>
+            <td>Jacob</td>
+            <td><input type="checkbox" name="status" checked></td>    
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Larry</td>
+            <span id="present">
+                <td><input type="checkbox" name="status" checked></td>
+            </span>    
+          </tr> -->
+        </tbody>
+      </table>
+      
+</div>
+
+<%# attendanceDataID %>
+
+<script src="../../public/js/meetDetails.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>

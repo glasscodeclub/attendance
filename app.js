@@ -81,7 +81,7 @@ app.get("/home/:id/details", function(req, res){
             return res.json(err);
         }else{
             console.log(attendance);
-          return  res.render("meetDetails", {attendanceDataID: attendance});
+          return  res.render("meetDetails", {attendanceDataID: attendance[0]});
         }
     })
 })
@@ -238,3 +238,5 @@ function isLoggedIn(req, res, next){
 app.listen(PORT, function(){
     console.log("connected to "+PORT);
 });
+
+
