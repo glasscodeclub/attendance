@@ -10,6 +10,7 @@ var express                 = require("express"),
     async                   = require("async"),
     passportLocalMongoose   = require("passport-local-mongoose");
 var _= require("lodash");
+const attendance = require("./models/attendance");
   
 const PORT=2000;
 const MONGO_URL="mongodb://localhost/attendance";
@@ -85,6 +86,38 @@ app.get("/home/:id/details", function(req, res){
     })
 })
 
+
+app.post("/home", function(req, res){
+    console.log(req.body);
+    const date = req.body.entered_date;
+    const time = req.body.entered_time;
+    const day = (Number)(date.substring(8,10));
+    const month = (Number)(date.substring(5,7))-1;
+    const year = (Number)(date.substring(0, 4));
+    const hours = (Number)(time.substring(0,2));
+    const min = (Number)(time.substring(3, 5));
+    console.log("Year = "+ year + " Month = "+month+" Day = "+day+" Hours = "+hours+" Minutes =  "+min);
+    const Date_obj = new Date(year, month, day, hours, min);
+    console.log(Date_obj);
+    const Attendance = {
+        username:req.body.user_name,
+        attendance_date:Date_obj,
+        data:[],
+        url:req.body.meet_url,
+        taker:req.body.entered_taker,
+       
+    };
+    attendanceLib.save(Attendance,function(err){
+        if(err){
+           return res.json(err);
+        }else{
+           return res.redirect("/home"); 
+        }
+    });
+
+    
+}); 
+
 app.post("/username/:user/password/:pass/save",function(req,res){
     console.log(req.body)
     if(1){//
@@ -156,7 +189,7 @@ app.post("/username/:user/password/:pass/save",function(req,res){
     }
 
   
-    
+       
 
 });
 // Auth Routes
