@@ -80,10 +80,15 @@ function add() {
   function getcode() {
     var passwordtext = document.getElementById('passwordtext').value;
      if(passwordtext)
-      document.getElementById('pass_word').value= passwordtext;
+     {
+        document.getElementById('pass_word').value= passwordtext;
+        copy();
+     }
      else
-     document.getElementById('pass_word').value= 'error';
-    copy();
+     {
+      document.getElementById('pass_word').value= 'error';
+      
+     }
   }
   function copy() {
     let username=document.getElementById('user_name').value;
