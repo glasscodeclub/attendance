@@ -29,7 +29,7 @@
            <td>
               <form action="/home/<%= attendanceData[i]._id %>/delete"  method="post" style="display: inline;"><button type="submit" class="controls" ><i class="far fa-trash-alt"></i></button></form>
                
-               <button class="controls" data-target="#edit-popup"><i class="fas fa-pen"></i></button>
+               <button class="controls" data-target="#edit-popup" id="<%=(i)%>" onclick="wow(this);"><i class="fas fa-pen"></i></button>
                <button class="controls" onclick="document.location='/home/<%= attendanceData[i]._id %>/details'"><i class="fab fa-readme"></i></button>
            </td>
         </tr>
@@ -141,7 +141,7 @@
     <div data-close-button class="close-button">&times;</div>
   </div>
   <div class="popup-body">
-    <% for(let i=0; i<attendanceData.length; ++i) { %>
+    <!-- <% for(let i=0; i<attendanceData.length; ++i) { %>
        <form class="needs-validation"   novalidate>
       <input type="text" style="display: none;visibility: hidden;" name="user_name" value="<%= username %>" >
       <div>
@@ -176,7 +176,19 @@
       <br>
       <div class="btn btn-outline-success" type="submit">Edit</div>
     </form>
-    <%}%>
+    <%}%> -->
+    <form class="needs-validation"   novalidate>
+      <input type="text" style="display: none;visibility: hidden;" name="user_name" value="<%= username %>" >
+      <div>
+        <input type="text" name="enter_sno" placeholder="serial no" class="form-control element" id="sno_link" required>
+          <div class="invalid-feedback">This Field can't be empty</div>
+        </div>
+        <br>
+        <div>
+          <input type="text" name="meet_url" placeholder="meet url" class="form-control element" id="meet_url" required>
+            <div class="invalid-feedback">This Field can't be empty</div>
+          </div>
+    </form>
   </div>
 </div>
 
@@ -185,3 +197,13 @@
 <script src="https://kit.fontawesome.com/e5a9d749f9.js" crossorigin="anonymous"></script>
 <script src="../public/js/home.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<script>
+   var x =`<%= attendanceData %>`;
+  function wow(e){
+    console.log(x," ",typeof(x));
+
+    document.getElementById('sno_link').value=e.id;
+    document.getElementById('meet_url').value=x[e.id].url 
+
+  }
+</script>
