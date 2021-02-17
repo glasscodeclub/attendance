@@ -4,43 +4,83 @@
 <link rel="stylesheet" href="../../public/css/header.css">
 
 <%- include("./partials/header.ejs") %>
-
+<% const DateOptions = { day:  "2-digit", month:  "2-digit", year: 'numeric' }; %>
 <!-- Meet Details -->
 
-
-
-<div class="wrapper">
-    <table class="table table-bordered table-success table-striped table-hover table-responsive-lg" id="tab">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Present</th>
-          </tr>
-        </thead>
-        <tbody>
-       <% for(let i=0; i< attendanceDataID.data.length; ++i) { %>
+<div class="list-group details">
+  <div class="row">
+    <div class="col col-6">
+      <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Meetlink</h5>
+        </div>
+        <p class="mb-1"><%= attendanceDataID.url %></p>
+      </a>
+    </div>
+    <div class="col col-6">
+      <a href="#" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Date</h5>
+        </div>
+        <p class="mb-1"><%= attendanceDataID.attendance_date.toLocaleDateString('en-GB', DateOptions) %></p>
+      </a>
+    </div>
+    <div class="col col-6">
+      <a href="#" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Time</h5>
+        </div>
+        <p class="mb-1"><%=  attendanceDataID.attendance_date.toLocaleTimeString('en-US') %></p>
+      </a>
+    </div>
+    <div class="col col-6">
+      <a href="#" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Creator</h5>
+        </div>
+        <p class="mb-1"><%=  attendanceDataID.taker %></p>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h1>Meet Details</h1>
+    </div>
+    <div class="sidebar-body">
+      <ul class="list-group list-group-flush"> 
+        <li class="list-group-item list-group-item-success"><%= attendanceDataID.url %> </li>
+        <li class="list-group-item list-group-item-success"><%= attendanceDataID.attendance_date.toLocaleDateString('en-GB', DateOptions) %></li>
+        <li class="list-group-item list-group-item-success"><%=  attendanceDataID.attendance_date.toLocaleTimeString('en-US') %> </li>
+        <li class="list-group-item list-group-item-success"><%= attendanceDataID.taker %></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <div class="wrapper">
+      <table class="table table-bordered table-success table-striped table-hover table-responsive-lg" id="tab">
+          <thead>
             <tr>
-                <th scope="row"><%= (i+1) %></th>
-                <td><%= attendanceDataID.data[i] %></td>
-                <td><input type="checkbox" name="status" checked></td>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Present</th>
+              <th scope="col">Absent</th>
             </tr>
-        <%}%>
-          <!-- <tr>
-            <th scope="row">1</th>
-            <td>Jacob</td>
-            <td><input type="checkbox" name="status" checked></td>    
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Larry</td>
-            <span id="present">
-                <td><input type="checkbox" name="status" checked></td>
-            </span>    
-          </tr> -->
-        </tbody>
-      </table>
-      
+          </thead>
+          <tbody>
+         <% for(let i=0; i< attendanceDataID.data.length; ++i) { %>
+              <tr>
+                  <th scope="row"><%= (i+1) %></th>
+                  <td><%= attendanceDataID.data[i] %></td>
+                  <td><input type="radio" name="status<%= [i] %>" checked></td>
+                  <td><input type="radio" name="status<%= [i] %>"></td>
+              </tr>
+          <%}%>
+          </tbody>
+        </table>
+    </div>
+  </div>
 </div>
 
 <%# attendanceDataID %>

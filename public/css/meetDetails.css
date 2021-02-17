@@ -8,9 +8,50 @@ body{
     background-color: #f6f6f6;
 }
 
+.main{
+    display: flex;
+}
+
+.details{
+    display: none;
+}
+
+.sidebar{
+    width: 15%;
+    min-width: fit-content;
+    position: fixed;
+    height: 100%;
+    background-color: #479f76;
+    padding: 2%;
+}
+
+.sidebar-header{
+    border-bottom: black solid;
+    padding: 1.5% 2%;
+}
+
+.sidebar-body {
+    margin-top: 1.8rem;
+    padding: 1.5% 2%;
+}
+
+.list-group-item-success{
+    background-color: #75b798;
+    color: #000;
+}
+
+.container{
+    width: 80%;
+    min-width: fit-content;
+    margin-top: 2%;
+}
+
+
 .wrapper {
-    width: 40%;
-    margin: auto;
+    width: 50%;
+    /* margin: auto; */
+    /* margin-top: 10% ; */
+    margin-left: 45%;
     min-width: fit-content;
     text-align: center;
     margin-top: 1%;
@@ -22,4 +63,32 @@ body{
 
 #logo {
     width: 15%
+}
+
+@media only screen and (max-width: 992px){
+    .sidebar{
+        display: none;
+    }
+
+    .container{
+        width: 1000%;
+        /* min-width: fit-content; */
+        margin-top: 2%;
+    }
+
+    .wrapper {
+        width: 80%;
+        margin: auto;
+        /* margin-top: 10% ; */
+        /* margin-left: 45%; */
+        min-width: fit-content;
+        text-align: center;
+        /* margin-top: 1%; */
+    }
+    .details{
+        display: block;
+        width: 100%;
+        margin: auto;
+    }
+    
 }
