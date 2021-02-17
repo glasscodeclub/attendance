@@ -5,6 +5,7 @@ var AttendanceScehma = new mongoose.Schema({
     data:[],
     url:String,
     taker:String,
+    you:String
 });
 
 module.exports = mongoose.model("attendance",AttendanceScehma);

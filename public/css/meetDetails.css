@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f6f6f6;
+}
+
+.wrapper {
+    width: 40%;
+    margin: auto;
+    min-width: fit-content;
+    text-align: center;
+    margin-top: 1%;
+}
+
+#present :checked {
+    background-color: #198754;
+}
+
+#logo {
+    width: 15%
+}
