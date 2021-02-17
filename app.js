@@ -86,6 +86,20 @@ app.get("/home/:id/details", function(req, res){
     })
 })
 
+app.post("/home/:id/delete", function(req, res){
+    const filter ={
+        _id: req.params.id
+    }
+    attendance.remove(filter, function (err) {
+        if(err){
+            return res.json(err);
+            
+        }else{
+            return res.redirect("/home");
+        }
+    });
+})
+
 
 app.post("/home", function(req, res){
     console.log(req.body);
