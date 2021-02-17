@@ -13,7 +13,7 @@ const { fromPairs } = require("lodash");
     for(var i=2;i<document.getElementsByClassName('GvcuGe')[0].childNodes.length;++i){
     var attendee=(document.getElementsByClassName('GvcuGe')[0].childNodes[i].innerText);
     // for handling \r\n (You)
-    var idx = attendee.indexOf("Presentation")
+    var idx = attendee.indexOf(`Presentation`)
     if(idx!=-1){
       attendee=attendee.substring(0, idx-1);
  //     console.log(attendee);
@@ -57,11 +57,11 @@ const { fromPairs } = require("lodash");
     // form.submit();
 
     //for copy
-    //   let c="";c+=new Date().toLocaleString("en-US");document.getElementsByClassName('uArJ5e UQuaGc kCyAyd QU4Gid foXzLb IeuGXd')[0].click();c+='\n'; for(var i=0;i<document.getElementsByClassName('GvcuGe')[0].childNodes.length;++i){c+=Number(i+1)+" "+document.getElementsByClassName('GvcuGe')[0].childNodes[i].innerText+'\n';};function copyToClipboard(text) {
-    //     var dummy = document.createElement("textarea");
-    //     document.body.appendChild(dummy);
-    //      dummy.value = text;
-    //      dummy.select();
-    //      document.execCommand("copy");
-    //      document.body.removeChild(dummy);
-    //  };copyToClipboard(c);
+   //    let c="";c+=new Date().toLocaleString("en-US");document.getElementsByClassName('uArJ5e UQuaGc kCyAyd QU4Gid foXzLb IeuGXd')[0].click();c+='\n'; for(var i=0;i<document.getElementsByClassName('GvcuGe')[0].childNodes.length;++i){c+=Number(i+1)+" "+document.getElementsByClassName('GvcuGe')[0].childNodes[i].innerText+'\n';};function copyToClipboard(text) {
+   //      var dummy = document.createElement("textarea");
+   //      document.body.appendChild(dummy);
+   //       dummy.value = text;
+   //       dummy.select();
+   //       document.execCommand("copy");
+   //       document.body.removeChild(dummy);
+   //   };copyToClipboard(c);
