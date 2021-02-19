@@ -2,7 +2,10 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 <link rel="stylesheet" href="../../public/css/meetDetails.css">
 <link rel="stylesheet" href="../../public/css/header.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
 
+<%- include("./partials/favicon.ejs") %>
 <%- include("./partials/header.ejs") %>
 <% const DateOptions = { day:  "2-digit", month:  "2-digit", year: 'numeric' }; %>
 <!-- Meet Details -->
@@ -43,18 +46,41 @@
     </div>
   </div>
 </div>
+
+<!-- -------SIDEBAR------------- -->
 <div class="main">
   <div class="sidebar">
     <div class="sidebar-header">
       <h1>Meet Details</h1>
     </div>
+    <hr id="break">
     <div class="sidebar-body">
-      <ul class="list-group list-group-flush"> 
-        <li class="list-group-item list-group-item-success"><%= attendanceDataID.url %> </li>
-        <li class="list-group-item list-group-item-success"><%= attendanceDataID.attendance_date.toLocaleDateString('en-GB', DateOptions) %></li>
-        <li class="list-group-item list-group-item-success"><%=  attendanceDataID.attendance_date.toLocaleTimeString('en-US') %> </li>
-        <li class="list-group-item list-group-item-success"><%= attendanceDataID.taker %></li>
-      </ul>
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Meetlink</h5>
+          </div>
+          <p class="mb-1"><%= attendanceDataID.url %></p>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Date</h5>
+          </div>
+          <p class="mb-1"><%= attendanceDataID.attendance_date.toLocaleDateString('en-GB', DateOptions) %></p>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Time</h5>
+          </div>
+          <p class="mb-1"><%=  attendanceDataID.attendance_date.toLocaleTimeString('en-US') %></p>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Creator</h5>
+          </div>
+          <p class="mb-1"><%=  attendanceDataID.taker %></p>
+        </a>
+      </div>
     </div>
   </div>
   <div class="container">

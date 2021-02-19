@@ -28,6 +28,10 @@ body{
     margin: auto 5%;
 }
 
+.control-col {
+    white-space: nowrap;
+}
+
 .popup{
     position: fixed;
     top: 50%;
