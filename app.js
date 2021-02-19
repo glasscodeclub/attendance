@@ -90,7 +90,7 @@ app.post("/home/:id/delete", function(req, res){
     const filter ={
         _id: req.params.id
     }
-    attendance.remove(filter, function (err) {
+    attendance.deleteOne(filter, function (err) {
         if(err){
             return res.json(err);
             
