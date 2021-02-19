@@ -29,7 +29,7 @@
            <td class="control-col">
               <form action="/home/<%= attendanceData[i]._id %>/delete"  method="post" style="display: inline;"><button type="submit" class="controls" ><i class="far fa-trash-alt"></i></button></form>
                
-               <button class="controls" data-target="#edit-popup" id="<%=(i)%>" onclick="wow(this);"><i class="fas fa-pen"></i></button>
+               <button class="controls" data-target="#edit-popup" id="<%=(i)%>" onclick="edit(this);"><i class="fas fa-pen"></i></button>
                <button class="controls" onclick="document.location='/home/<%= attendanceData[i]._id %>/details'"><i class="fab fa-readme"></i></button>
            </td>
         </tr>
@@ -181,13 +181,32 @@
       <input type="text" style="display: none;visibility: hidden;" name="user_name" value="<%= username %>" >
       <div>
         <input type="text" name="enter_sno" placeholder="serial no" class="form-control element" id="sno_link" disabled>
-          <div class="invalid-feedback">This Field can't be empty</div>
+      </div>
+      <br>
+      <div>
+        <input type="text" name="meet_url" placeholder="meet url" class="form-control element" id="meet_url" disabled>
         </div>
         <br>
         <div>
-          <input type="text" name="meet_url" placeholder="meet url" class="form-control element" id="meet_url" required>
+          <input type="text" name="No. of Participants" placeholder="No. Of Particip  ants" class="form-control element" id="participants" disabled>
+        </div>
+        <br>
+        <div>
+          <input type="date" name= "entered_date" class="form-control element" required>
             <div class="invalid-feedback">This Field can't be empty</div>
           </div>
+          <br>
+          <div>
+          <input type="time" name= "entered_time" class="form-control element" required>
+            <div class="invalid-feedback">This Field can't be empty</div>
+          </div>
+          <br>
+          <div>
+          <input type="text" name= "entered_taker" placeholder="Creator" class="form-control element" required>
+            <div class="invalid-feedback">This Field can't be empty</div>
+          </div>
+          <br>
+          <button class="btn btn-outline-success" type="submit">Edit</button>
     </form>
   </div>
 </div>
@@ -202,9 +221,10 @@
     var y=JSON.parse(x)
     console.log(y,typeof(y))
   //console.log(x,typeof(x))
-  function wow(e){
+  function edit(e){
     document.getElementById('sno_link').value= Number(e.id)+ Number(1);
     document.getElementById('meet_url').value=y[e.id].url 
+    document.getElementById('participants').value=y[e.id].data.length; 
     console.log(e);
 
   }

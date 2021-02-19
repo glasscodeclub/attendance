@@ -63,16 +63,16 @@ function openPopup(popup) {
 
 //Adding row on table
 
-function add() {
+// function add() {
   
-    var table = document.getElementById("tab");
-    var link = document.getElementById("link").value;
-    var participants = document.getElementById("participants").value;
-    var date = document.getElementById("date").value;
-    var time = document.getElementById("time").value;
-    var creator = document.getElementById("creator").value;
-    table.innerHTML +='<tr><th scope="row"></th><td>'+link+'</td><td>'+participants+'</td><td>'+date+'</td><td>'+time+'</td><td>'+creator+'</td><td><button class="controls"><i class="far fa-trash-alt"</i></button><button class="controls"><i class="fas fa-pen"></i></button><button class="controls"><i class="fab fa-readme"></i></button></td></tr>';
-  }
+//     var table = document.getElementById("tab");
+//     var link = document.getElementById("link").value;
+//     var participants = document.getElementById("participants").value;
+//     var date = document.getElementById("date").value;
+//     var time = document.getElementById("time").value;
+//     var creator = document.getElementById("creator").value;
+//     table.innerHTML +='<tr><th scope="row"></th><td>'+link+'</td><td>'+participants+'</td><td>'+date+'</td><td>'+time+'</td><td>'+creator+'</td><td class="control-col"><form action="/home/<%= attendanceData[i]._id %>/delete"  method="post" style="display: inline;"><button class="controls"><i class="far fa-trash-alt"</i></button><button class="controls"><i class="fas fa-pen"></i></button><button class="controls"><i class="fab fa-readme"></i></button></td></tr>';
+//   }
  
 
   //Copy to clipboard
