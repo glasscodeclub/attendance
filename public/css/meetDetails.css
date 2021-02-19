@@ -25,13 +25,36 @@ body{
     padding: 2%;
 }
 
+h1 {
+    margin: auto;
+    /* margin-left: 8%; */
+    padding: 4%;
+}
+
 .sidebar-header{
-    border-bottom: black solid;
-    padding: 1.5% 2%;
+    /* border-bottom: white;
+    border-width: 0 0 2px 0;
+    border-style: dashed; */
+    /* padding: 1.5% 2%; */
+    font-size: 1rem;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#break{
+    height: 0;
+    border: #fff;
+    border-style: dotted;
+    border-width: 0 0 6px 0;
+    opacity: 1;
+    width: 35%;
+    background-color: #479f76;
+    margin: auto;
 }
 
 .sidebar-body {
     margin-top: 1.8rem;
+    border-radius: 10%;
     padding: 1.5% 2%;
 }
 

@@ -1,7 +1,7 @@
 <!-- --------------------BOOTSTRAP----------------------- -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 <link rel="stylesheet" href="../public/css/home.css">
-
+<%- include("./partials/favicon.ejs") %>
 <%- include("./partials/header.ejs") %>
 <div class="wrapper">
     <table class="table table-bordered table-success table-striped table-hover table-responsive-lg border-dark" id="tab">
@@ -26,7 +26,7 @@
             <td><%= attendanceData[i].attendance_date.toLocaleDateString('en-GB', DateOptions) %></td>
             <td><%= attendanceData[i].attendance_date.toLocaleTimeString('en-US') %></td>
             <td><%= attendanceData[i].taker %></td>
-           <td>
+           <td class="control-col">
               <form action="/home/<%= attendanceData[i]._id %>/delete"  method="post" style="display: inline;"><button type="submit" class="controls" ><i class="far fa-trash-alt"></i></button></form>
                
                <button class="controls" data-target="#edit-popup" id="<%=(i)%>" onclick="wow(this);"><i class="fas fa-pen"></i></button>
@@ -180,7 +180,7 @@
     <form class="needs-validation"   novalidate>
       <input type="text" style="display: none;visibility: hidden;" name="user_name" value="<%= username %>" >
       <div>
-        <input type="text" name="enter_sno" placeholder="serial no" class="form-control element" id="sno_link" required>
+        <input type="text" name="enter_sno" placeholder="serial no" class="form-control element" id="sno_link" disabled>
           <div class="invalid-feedback">This Field can't be empty</div>
         </div>
         <br>
@@ -203,8 +203,9 @@
     console.log(y,typeof(y))
   //console.log(x,typeof(x))
   function wow(e){
-    document.getElementById('sno_link').value=e.id;
+    document.getElementById('sno_link').value= Number(e.id)+ Number(1);
     document.getElementById('meet_url').value=y[e.id].url 
+    console.log(e);
 
   }
 </script>
