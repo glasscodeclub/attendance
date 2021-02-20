@@ -11,9 +11,11 @@
  console.log(z,typeof(z))
  function edit(e){
    document.getElementById('sno_link').value= Number(e.id)+ Number(1);
-   document.getElementById('meet_url').value=y[e.id].url 
+   document.getElementById('meet_url').value=y[e.id].url; 
    document.getElementById('participants').value=y[e.id].data.length; 
+   document.getElementById('atten_id').value=y[e.id]._id;
    console.log(e);
+   
  }
  function deleteYes (e){
 
@@ -55,13 +57,13 @@ if(x)
         </tr>
         </thead>
         <tbody>
-          <% const DateOptions = { day:  "2-digit", month:  "2-digit", year: 'numeric' }; %>
+         
           <% for(let i=0; i < attendanceData.length; ++i) { %>
              <tr>
             <th scope="row"><%= (i+1) %></th>
             <td><%= attendanceData[i].url %></td>
             <td><%= attendanceData[i].data.length %></td>
-            <td><%= attendanceData[i].attendance_date.toLocaleDateString('en-GB', DateOptions) %></td>
+            <td><%= moment(attendanceData[i].attendance_date).format("DD/MM/YYYY") %></td>
             <td><%= attendanceData[i].attendance_date.toLocaleTimeString('en-US') %></td>
             <td><%= attendanceData[i].taker %></td>
            <td class="control-col">
@@ -183,7 +185,8 @@ if(x)
   <div class="popup-body">
      <% for(let i=0; i<attendanceData.length; ++i) { %>
     <%}%>
-    <form class="needs-validation"   novalidate>
+    <form class="needs-validation" method="POST" action="/home/edit"  novalidate>
+      <input type="text" name="atten_id" style="display: none;visibility: hidden;" id="atten_id"  >
       <input type="text" style="display: none;visibility: hidden;" name="user_name" value="<%= username %>" >
       <div>
         <input type="text" name="enter_sno" placeholder="serial no" class="form-control element" id="sno_link" disabled>
