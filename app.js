@@ -7,9 +7,12 @@ var express                 = require("express"),
     LocalStrategy           = require("passport-local"),
     attendanceLib           = require("./lib/attendance.lib.js"),
     userLib                 = require('./lib/user.lib.js'),  
+    DateLib               = require('./lib/date.js'),  
     async                   = require("async"),
     passportLocalMongoose   = require("passport-local-mongoose");
+
 var _= require("lodash");
+const moment = require("moment");
 const attendance = require("./models/attendance");
   
 const PORT=2000;
@@ -56,12 +59,12 @@ filter={
           return res.send(err)
       }else if(_.isEmpty(docs)){
 
-        return res.render("home",{"attendanceData":"",username:req.user.username});
+        return res.render("home",{"attendanceData":"",username:req.user.username, moment:moment});
       }
 
       else{
-          console.log(docs);
-        return res.render("home",{attendanceData:docs,username:req.user.username});
+      //    console.log(moment(docs[0].attendance_date).format("DD/MM/YYYY"));
+        return res.render("home",{attendanceData:docs,username:req.user.username, moment:moment});
         // return res.json(docs)
       }
    });
@@ -80,7 +83,7 @@ app.get("/home/:id/details", function(req, res){
             console.log(err);
             return res.json(err);
         }else{
-            console.log(attendance);
+         //   console.log(attendance);
           return  res.render("meetDetails", {attendanceDataID: attendance[0]});
         }
     })
@@ -90,10 +93,27 @@ app.post("/home/:id/delete", function(req, res){
     const filter ={
         _id: req.params.id
     }
-    attendance.deleteOne(filter, function (err) {
+    attendanceLib.deleteOne(filter, function (err) {
         if(err){
             return res.json(err);
-            
+        }else{
+            return res.redirect("/home");
+        }
+    });
+})
+
+app.post("/home/edit", function(req, res){
+    const filter ={
+        _id:req.body.atten_id
+    }
+    const newVal={
+        attendance_date: DateLib.getDate(req),
+        taker:req.body.entered_taker
+
+    }
+    attendanceLib.updateOne(filter, newVal, function(err){
+        if(err){
+            return res.json(err);
         }else{
             return res.redirect("/home");
         }
@@ -102,20 +122,11 @@ app.post("/home/:id/delete", function(req, res){
 
 
 app.post("/home", function(req, res){
-    console.log(req.body);
-    const date = req.body.entered_date;
-    const time = req.body.entered_time;
-    const day = (Number)(date.substring(8,10));
-    const month = (Number)(date.substring(5,7))-1;
-    const year = (Number)(date.substring(0, 4));
-    const hours = (Number)(time.substring(0,2));
-    const min = (Number)(time.substring(3, 5));
-    console.log("Year = "+ year + " Month = "+month+" Day = "+day+" Hours = "+hours+" Minutes =  "+min);
-    const Date_obj = new Date(year, month, day, hours, min);
-    console.log(Date_obj);
+ //   console.log(req.body);
+    
     const Attendance = {
         username:req.body.user_name,
-        attendance_date:Date_obj,
+        attendance_date:DateLib.getDate(req),
         data:[],
         url:req.body.meet_url,
         taker:req.body.entered_taker,
@@ -133,7 +144,7 @@ app.post("/home", function(req, res){
 }); 
 
 app.post("/username/:user/password/:pass/save",function(req,res){
-    console.log(req.body)
+  //  console.log(req.body)
     if(1){//
             let result={};
             let filter={
@@ -177,7 +188,7 @@ app.post("/username/:user/password/:pass/save",function(req,res){
                         you: req.body.you,
                         
                     };    
-                   console.log(new_attendance);
+              //     console.log(new_attendance);
                     attendanceLib.save(new_attendance,function(err){
                         if(err){
                             console.log(err);
