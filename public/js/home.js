@@ -105,11 +105,9 @@ function openPopup(popup) {
     c+=you+"@";
     for(var i=2;i<document.getElementsByClassName('GvcuGe')[0].childNodes.length;++i){
     var attendee=(document.getElementsByClassName('GvcuGe')[0].childNodes[i].innerText);
-    // for handling \r\n (You)
     var idx = attendee.indexOf('Presentation')
     if(idx!=-1){
       attendee=attendee.substring(0, idx-1);
- //     console.log(attendee);
 
     }
     c+=attendee+"@";
