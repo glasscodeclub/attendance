@@ -99,15 +99,41 @@
               <tr>
                   <th scope="row"><%= (i+1) %></th>
                   <td><%= attendanceDataID.data[i] %></td>
-                  <td><input type="radio" name="status<%= [i] %>" checked></td>
-                  <td><input type="radio" name="status<%= [i] %>"></td>
+                  <td><input type="radio" name="status<%= [i] %>" id="present-absent<%= i %>" checked></td>
+                  <td><input type="radio" name="status<%= [i] %>" id="absent<%= i %>" onclick="absent(this)"></td>
               </tr>
           <%}%>
           </tbody>
         </table>
+        <button class="btn btn-outline-success" data-target="#adding-students">Add Participant</button>
     </div>
   </div>
 </div>
+
+<!-- -----------ADDING STUDENTS------------- -->
+
+<div class="popup " id="adding-students">
+  <div class="popup-header">
+    <div class="title">Add Student</div>
+    <div data-close-button class="close-button">&times;</div>
+  </div>
+  <div class="popup-body">
+    <form class="row g-3 needs-validation" novalidate>
+      <div>
+        <input type="text" class="form-control element" id="validationCustom01" placeholder="Name Of Students" required>
+        <div class="invalid-feedback">
+          This Field Can't Be Empty
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-success" type="submit">+ Add</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="overlay"></div>
+
 
 <%# attendanceDataID %>
 
