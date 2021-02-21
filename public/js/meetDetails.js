@@ -16,3 +16,79 @@ function search() {
       }
     }
   } 
+
+
+  const openPopupButton = document.querySelectorAll('[data-target]');
+  const closePopupButton = document.querySelectorAll('[data-close-button]');
+  const overlay = document.getElementById('overlay');
+
+  openPopupButton.forEach(button => {
+      button.addEventListener('click', () => {
+          const popup = document.querySelector(button.dataset.target);
+          openPopup(popup);
+      });
+  });
+
+
+  closePopupButton.forEach(button => {
+    button.addEventListener('click', () => {
+        const popup = button.closest('.popup');
+        closePopup(popup);
+    });
+});
+
+overlay.addEventListener('click', () => {
+  const popup = document.querySelectorAll('.popup.active')
+  popup.forEach(popup => {
+    closePopup(popup)
+  })
+})
+
+function openPopup(popup) {
+    if (popup == null) return;
+    popup.classList.add('active');
+    overlay.classList.add('active');
+}
+
+  function closePopup(popup) {
+    if (popup == null) return;
+    popup.classList.remove('active');
+    overlay.classList.remove('active');
+}
+
+//-------VAlidation--------------
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+
+
+function absent(e) {
+  var x = document.getElementById(e.id);
+  var p = document.getElementById('present-'+ e.id);
+  console.log(x)
+  var y = window.confirm('Do You want to mark this student Absent?');
+  if( y )
+  {
+    x.checked= true;
+  }
+  else
+  {
+    p.checked= true;
+  }
+}
