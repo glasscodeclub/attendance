@@ -26,6 +26,7 @@ body{
     outline: 0;
     background: none;
     margin: auto 5%;
+    margin-right: auto;
 }
 
 p{
@@ -111,4 +112,8 @@ p{
 #no-delete{
   position: absolute;
   right: 5%;
+}
+
+#passwordtext {
+   margin: 3% 0 5% 0;
 }

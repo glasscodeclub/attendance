@@ -1,3 +1,9 @@
+#navbar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
 
 #logo {
     /* width: 20%; */
@@ -6,4 +12,26 @@
 
 #search{
     width: 30%;
+    margin-left: 1rem;
+}
+
+#navbarTogglerDemo02 {
+    text-align: right;
+}
+
+#navbarTogglerDemo02 ul li a {
+    font-size: 1.2rem;
+    color: #fff;
+    opacity: 0.7;
+}
+
+#navbarTogglerDemo02 ul li a:hover {
+    opacity: 1;
+}
+
+#navbarTogglerDemo02 ul li {
+    /* position: absolute;
+    right: 50%; */
+    z-index: 5;
+    margin: 0 1rem;
 }
