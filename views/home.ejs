@@ -69,10 +69,10 @@ if(x)
            <td class="control-col">
              <div id="test">
              </div>
-                <button type="submit" data-target="#delete-popup" id="<%= attendanceData[i]._id%>" onclick="deleteYes(this)" class="controls" ><i class="far fa-trash-alt"></i></button></form>
+                <button type="submit" data-target="#delete-popup" id="<%= attendanceData[i]._id%>" onclick="deleteYes(this)" class="controls" title="Delete" ><i class="far fa-trash-alt"></i></button></form>
                
-               <button class="controls" data-target="#edit-popup" id="<%=(i)%>" onclick="edit(this);"><i class="fas fa-pen"></i></button>
-               <button class="controls" onclick="document.location='/home/<%= attendanceData[i]._id %>/details'"><i class="fab fa-readme"></i></button>
+               <button class="controls" data-target="#edit-popup" id="<%=(i)%>" onclick="edit(this);"><i class="fas fa-pen" title="Edit" ></i></button>
+               <button class="controls" onclick="document.location='/home/<%= attendanceData[i]._id %>/details'"><i class="fab fa-readme" title="Read" ></i></button>
            </td>
         </tr>
           <%}%>
@@ -154,19 +154,20 @@ if(x)
 
 <div class="popup" id="copy-popup">
   <div class="popup-header">
-    <div class="title"> lorem ipsum</div>
+    <div class="title">Copying Code</div>
     <div class="close-button" data-close-button>&times;</div>
     </div>
   <div class="popup-body">
     <form class="needs-validation" novalidate>
       <lable for="passwordtext">Enter your Password</label><br>
         <div>
-          <input type="text" placeholder="Password" class="form-control element" id="passwordtext" required>
+          <input type="password" placeholder="Password" class="form-control element" id="passwordtext" required>
           <div class="invalid-feedback">This field can't be empty</div>
         </div>
-        <br>
+        <!-- <br> -->
+        <input type="checkbox" onclick="showPass()"><small> Show Password</small>
     </form>
-    <div class="btn btn-outline-success" onclick="getcode()">Get code</div>
+    <br><br><div class="btn btn-outline-success btn-copy" onclick="getcode()">Get code</div>
   </div>
 </div>
 

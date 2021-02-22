@@ -171,4 +171,15 @@ function openPopup(popup) {
       }
     } 
     
+function showPass() {
+  let pass = document.getElementById('passwordtext');
 
+  if(pass.type == 'password')
+  {
+    pass.type = 'text';
+  }
+  else
+  {
+    pass.type = 'password';
+  }
+}
