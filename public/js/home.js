@@ -105,11 +105,9 @@ function openPopup(popup) {
     c+=you+"@";
     for(var i=2;i<document.getElementsByClassName('GvcuGe')[0].childNodes.length;++i){
     var attendee=(document.getElementsByClassName('GvcuGe')[0].childNodes[i].innerText);
-    // for handling \r\n (You)
     var idx = attendee.indexOf('Presentation')
     if(idx!=-1){
       attendee=attendee.substring(0, idx-1);
- //     console.log(attendee);
 
     }
     c+=attendee+"@";
@@ -158,19 +156,103 @@ function openPopup(popup) {
       let filter = document.getElementById('search').value.toUpperCase();
       let tab = document.getElementById('tab');
       let tr = tab.getElementsByTagName('tr');
+      let option = document.getElementById('heading');
 
-      for(var i=0; i < tr.length; ++i){
-        let td = tr[i].getElementsByTagName('td')[0];
-        if(td){
-          let textvalue = td.textContent || td.innerHTML;
+      if(option.value == "name/link")
+      {
+        for(var i=0; i < tr.length; ++i){
+          let td = tr[i].getElementsByTagName('td')[0];
+          console.log(td);
+          if(td){
+            let textvalue = td.textContent || td.innerHTML;
+  
+            if(textvalue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            }else{
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
 
-          if(textvalue.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-          }else{
-            tr[i].style.display = "none";
+      else if(option.value == "no. of participants")
+      {
+        for(var i=0; i < tr.length; ++i){
+          let td = tr[i].getElementsByTagName('td')[1];
+          console.log(td);
+          if(td){
+            let textvalue = td.textContent || td.innerHTML;
+  
+            if(textvalue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            }else{
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+
+      else if(option.value == "date")
+      {
+        for(var i=0; i < tr.length; ++i){
+          let td = tr[i].getElementsByTagName('td')[2];
+          console.log(td);
+          if(td){
+            let textvalue = td.textContent || td.innerHTML;
+  
+            if(textvalue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            }else{
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+
+      else if(option.value == "time")
+      {
+        for(var i=0; i < tr.length; ++i){
+          let td = tr[i].getElementsByTagName('td')[3];
+          console.log(td);
+          if(td){
+            let textvalue = td.textContent || td.innerHTML;
+  
+            if(textvalue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            }else{
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+
+      else if(option.value == "creator")
+      {
+        for(var i=0; i < tr.length; ++i){
+          let td = tr[i].getElementsByTagName('td')[4];
+          console.log(td);
+          if(td){
+            let textvalue = td.textContent || td.innerHTML;
+  
+            if(textvalue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            }else{
+              tr[i].style.display = "none";
+            }
           }
         }
       }
     } 
     
+function showPass() {
+  let pass = document.getElementById('passwordtext');
 
+  if(pass.type == 'password')
+  {
+    pass.type = 'text';
+  }
+  else
+  {
+    pass.type = 'password';
+  }
+}
