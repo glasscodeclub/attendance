@@ -74,6 +74,8 @@ filter={
 
 });
 
+
+
 app.get("/home/:id/details", function(req, res){
     const filter ={
         _id: req.params.id
@@ -87,7 +89,104 @@ app.get("/home/:id/details", function(req, res){
           return  res.render("meetDetails", {attendanceDataID: attendance[0]});
         }
     })
-})
+    
+});
+
+app.post("/home/:id/addParticipant", function(req, res){
+if(1){
+    const filter ={
+    _id: req.params.id
+}
+let new_data = [];
+async.series([
+    (callback)=> {
+attendanceLib.findbyId(filter, function(err, attendance){
+    if(err){
+        console.log(err);
+        return callback(err);
+       // return res.json(err);
+    }else{
+        new_data = attendance[0].data;       
+        return callback(null);
+    }
+});
+},
+(callback)=> {
+    new_data.push(req.body.name);
+const newVal={
+   data: new_data
+}
+attendanceLib.updateOne(filter,  newVal, function(err){
+    if(err){
+        callback(err);
+    }else{
+        return callback(null);
+    }
+});
+
+}
+],
+(err)=> {
+    if(err){
+        return console.log(err)//
+    }
+    else{
+      return  res.redirect("/home/"+req.params.id+"/details");//change this to normal
+    }
+});
+}
+else{
+    res.send("empty body");
+}
+});
+
+
+app.post("/home/:id/details/delete/:idx", function(req, res){
+    const filter ={
+        _id: req.params.id
+    }
+    var new_data = [];
+    async.series([
+        (callback)=> {
+    attendanceLib.findbyId(filter, function(err, attendance){
+        if(err){
+            return callback(err);
+           // return res.json(err);
+        }else{
+         //  console.log(attendance);
+            new_data = attendance[0].data;
+            return callback(null);
+        }
+    });
+},
+(callback)=> {
+    
+    const index = req.params.idx;
+    new_data.splice(index,1);
+    
+    const newVal={
+       data: new_data
+    }
+    
+    attendanceLib.updateOne(filter,  newVal, function(err){
+        if(err){
+            return callback(err);
+        }else{
+             console.log("Successfully marked absent");
+             return callback(null);
+        }
+    });
+}
+],
+(err)=> {
+    if(err){
+        return console.log(err)//
+    }
+    else{
+      return res.redirect("/home/"+req.params.id+"/details");
+    }
+});
+});
 
 app.post("/home/:id/delete", function(req, res){
     const filter ={
@@ -172,13 +271,7 @@ app.post("/username/:user/password/:pass/save",function(req,res){
 
                     let attendees = req.body.data.split("@");
                     attendees.pop();
-                 
-                    // attendees.forEach(function(attendee){
-                    //     var idx = attendee.indexOf("\r\n")
-                    // if(idx!==-1){
-                    //      attendee=attendee.substring(0, idx);
-                    //     }
-                    // });
+
                     let new_attendance={
                         username:req.params.user,
                         attendance_date:req.body.date,
