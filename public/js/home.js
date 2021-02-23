@@ -156,16 +156,89 @@ function openPopup(popup) {
       let filter = document.getElementById('search').value.toUpperCase();
       let tab = document.getElementById('tab');
       let tr = tab.getElementsByTagName('tr');
+      let option = document.getElementById('heading');
 
-      for(var i=0; i < tr.length; ++i){
-        let td = tr[i].getElementsByTagName('td')[0];
-        if(td){
-          let textvalue = td.textContent || td.innerHTML;
+      if(option.value == "name/link")
+      {
+        for(var i=0; i < tr.length; ++i){
+          let td = tr[i].getElementsByTagName('td')[0];
+          console.log(td);
+          if(td){
+            let textvalue = td.textContent || td.innerHTML;
+  
+            if(textvalue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            }else{
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
 
-          if(textvalue.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-          }else{
-            tr[i].style.display = "none";
+      else if(option.value == "no. of participants")
+      {
+        for(var i=0; i < tr.length; ++i){
+          let td = tr[i].getElementsByTagName('td')[1];
+          console.log(td);
+          if(td){
+            let textvalue = td.textContent || td.innerHTML;
+  
+            if(textvalue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            }else{
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+
+      else if(option.value == "date")
+      {
+        for(var i=0; i < tr.length; ++i){
+          let td = tr[i].getElementsByTagName('td')[2];
+          console.log(td);
+          if(td){
+            let textvalue = td.textContent || td.innerHTML;
+  
+            if(textvalue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            }else{
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+
+      else if(option.value == "time")
+      {
+        for(var i=0; i < tr.length; ++i){
+          let td = tr[i].getElementsByTagName('td')[3];
+          console.log(td);
+          if(td){
+            let textvalue = td.textContent || td.innerHTML;
+  
+            if(textvalue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            }else{
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+
+      else if(option.value == "creator")
+      {
+        for(var i=0; i < tr.length; ++i){
+          let td = tr[i].getElementsByTagName('td')[4];
+          console.log(td);
+          if(td){
+            let textvalue = td.textContent || td.innerHTML;
+  
+            if(textvalue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            }else{
+              tr[i].style.display = "none";
+            }
           }
         }
       }
