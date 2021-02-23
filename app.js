@@ -86,7 +86,7 @@ app.get("/home/:id/details", function(req, res){
             return res.json(err);
         }else{
          //   console.log(attendance);
-          return  res.render("meetDetails", {attendanceDataID: attendance[0]});
+          return  res.render("meetDetails", {attendanceDataID: attendance[0], moment:moment});
         }
     })
     
@@ -104,7 +104,6 @@ attendanceLib.findbyId(filter, function(err, attendance){
     if(err){
         console.log(err);
         return callback(err);
-       // return res.json(err);
     }else{
         new_data = attendance[0].data;       
         return callback(null);
@@ -172,7 +171,6 @@ app.post("/home/:id/details/delete/:idx", function(req, res){
         if(err){
             return callback(err);
         }else{
-             console.log("Successfully marked absent");
              return callback(null);
         }
     });
