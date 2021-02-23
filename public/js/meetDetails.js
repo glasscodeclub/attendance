@@ -79,13 +79,20 @@ function openPopup(popup) {
 
 
 function absent(e) {
-  var x = document.getElementById(e.id);
-  var p = document.getElementById('present-'+ e.id);
+  const idx = e.id;
+  var x = document.getElementById(idx);
+  var p = document.getElementById('present-'+ idx);
   console.log(x)
   var y = window.confirm('Do You want to mark this student Absent?');
+  const currLoc = window.location.href;
   if( y )
   {
     x.checked= true;
+    $.post(currLoc+`/delete/${idx}`,{},
+ function(data, status){
+   window.location.reload();
+ });
+    
   }
   else
   {

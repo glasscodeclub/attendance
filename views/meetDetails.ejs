@@ -99,8 +99,8 @@
               <tr>
                   <th scope="row"><%= (i+1) %></th>
                   <td><%= attendanceDataID.data[i] %></td>
-                  <td><input type="radio" name="status<%= [i] %>" id="present-absent<%= i %>" checked></td>
-                  <td><input type="radio" name="status<%= [i] %>" id="absent<%= i %>" onclick="absent(this)"></td>
+                  <td><input type="radio" name="status<%= [i] %>" id="present-<%= i %>" checked></td>
+                  <td><input type="radio" name="status<%= [i] %>" id="<%= i %>" onclick="absent(this)"></td>
               </tr>
           <%}%>
           </tbody>
@@ -118,9 +118,11 @@
     <div data-close-button class="close-button">&times;</div>
   </div>
   <div class="popup-body">
-    <form class="row g-3 needs-validation" novalidate>
+    <form method="POST" action= "./addParticipant" class="row g-3 needs-validation" novalidate>
       <div>
-        <input type="text" class="form-control element" id="validationCustom01" placeholder="Name Of Participant" required>
+
+        <input type="text" name="name" class="form-control element" id="validationCustom01" placeholder="Name Of Participant" required>
+
         <div class="invalid-feedback">
           This Field Can't Be Empty
         </div>
@@ -136,6 +138,6 @@
 
 
 <%# attendanceDataID %>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../../public/js/meetDetails.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
