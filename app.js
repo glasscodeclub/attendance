@@ -85,7 +85,7 @@ app.get("/home/:id/details", function(req, res){
             console.log(err);
             return res.json(err);
         }else{
-         //   console.log(attendance);
+           //  console.log(moment(attendance[0].attendance_date).format("DD/MM/YYYY"));
           return  res.render("meetDetails", {attendanceDataID: attendance[0], moment:moment});
         }
     })

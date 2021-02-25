@@ -7,7 +7,7 @@
 
 <%- include("./partials/favicon.ejs") %>
 <%- include("./partials/header.ejs") %>
-<% const DateOptions = { day:  "2-digit", month:  "2-digit", year: 'numeric' }; %>
+
 <!-- Meet Details -->
 
 <div class="list-group details">
@@ -66,7 +66,7 @@
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">Date</h5>
           </div>
-          <p class="mb-1"><%= attendanceDataID.attendance_date.toLocaleDateString('en-GB', DateOptions) %></p>
+          <p class="mb-1"><%=moment(attendanceDataID.attendance_date).format("DD/MM/YYYY") %></p>
         </a>
         <a href="#" class="list-group-item list-group-item-action">
           <div class="d-flex w-100 justify-content-between">
