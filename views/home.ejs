@@ -1,6 +1,9 @@
 <!-- --------------------BOOTSTRAP----------------------- -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 <link rel="stylesheet" href="../public/css/home.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+
 <%- include("./partials/favicon.ejs") %>
 <%- include("./partials/header.ejs") %>
 <script>
@@ -43,8 +46,13 @@ if(x)
 
 </script>
 
+
 <div class="wrapper">
     <table class="table table-bordered table-success table-striped table-hover table-responsive-lg border-dark" id="tab">
+      <div class="welcome">
+        <em><h1>Welcome, <%= username %></h1></em>
+        <em><p>Your attendance records,</p></em>
+      </div>
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -175,7 +183,6 @@ if(x)
 <input type="text" style="display: none;visibility: hidden;" value="<%= username %>" id="user_name">
 <input type="text" style="display: none;visibility: hidden;" value="" id="pass_word">
 
-
 <!-- Popup for editing -->
 
 <div class="popup " id="edit-popup">
@@ -220,19 +227,6 @@ if(x)
     </form>
   </div>
 </div>
-<!-- ------Popup For Delete--------- -->
-
-<!-- <div class="popup" id="delete-popup" >
- <div class="popup-header">                                  
-    <div class="title">Delete?</div>
-    <div data-close-button class="close-button">&times;</div>
-  </div>
-  <div class="popup-body">
-      <p>Do you want to Delete this entry?</p><br>
-      <button class="btn btn-success" onclick="deleteYes(this);">Yes</button>
-      <button class="btn btn-danger" id="no-delete">No</button>
-    </div>
-</div> -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/e5a9d749f9.js" crossorigin="anonymous"></script>
