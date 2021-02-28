@@ -5,7 +5,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
 
 <%- include("./partials/favicon.ejs") %>
-<%- include("./partials/header.ejs") %>
+<%- include("./partials/header.ejs",{loc: "home"}); %>
 <script>
   var x =`<%- JSON.stringify(attendanceData) %>`;
    var y=JSON.parse(x)
