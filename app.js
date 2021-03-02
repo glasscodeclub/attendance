@@ -330,6 +330,10 @@ app.get("/login", function(req, res){
     res.render("login");
 })
 
+app.get("/signup", function(req, res){
+    res.render("signup");
+})
+
 // middleware
 app.post("/login", passport.authenticate("local",{
     successRedirect:"/home",
