@@ -53,7 +53,7 @@ p{
     left: 50%;
     transform: translate(-50% , -50%) scale(0);
     transition: 200ms ease-in-out;
-    width: 20%;
+    width: fit-content;
     min-width: 180px;
     border: 1px solid #198754 ;
     z-index: 10;
@@ -126,4 +126,40 @@ p{
 
 #passwordtext {
    margin: 3% 0 5% 0;
+}
+
+.links{
+    height: 170px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    margin: 2%;
+    background-color:#f6f6f6;
+    border: solid 2px #198754;
+    border-radius: 50%;
+}
+
+.link-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+.link-body {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%) scale(0);
+    transition: 200ms ease-in-out;
+    width: fit-content;
+    min-width: 180px;
+    z-index: 10;
+    background-color: transparent;
+    border-radius: 10%;
+}
+
+.link-body.active{
+    transform: translate(-50% , -50%) scale(1);
 }
