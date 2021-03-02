@@ -45,7 +45,7 @@ passport.deserializeUser(User.deserializeUser());
 
 
 app.get("/",function(req,res){
-    res.render("signup");
+    res.render("login");
 });
 
 app.get("/home",isLoggedIn, function(req, res){
