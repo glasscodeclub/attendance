@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="../public/css/home.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
 <%- include("./partials/favicon.ejs") %>
 <%- include("./partials/header.ejs",{loc: "home"}); %>
@@ -117,7 +118,7 @@ if(x)
       </table>
       <div class="buttons">
         <button class="btn btn-outline-success" data-target="#popup" >+ Add Entry</button> 
-        <button class="btn btn-outline-success"  data-target="#copy-popup">Copy Code</button> 
+        <button class="btn btn-outline-success"  data-target="#links-popup">Copy Code</button> 
 
       </div>   
 </div>
@@ -158,30 +159,80 @@ if(x)
 
 <div id="overlay"></div>
 
-<!-- Popup For Copying Code -->
+<!-- Popup For Copying Code (Google Meet) -->
 
-<div class="popup" id="copy-popup">
+<div class="popup" id="copy-popup-meet">
   <div class="popup-header">
-    <div class="title">Copying Code</div>
+    <div class="title">Copying Code (Google Meet)</div>
     <div class="close-button" data-close-button>&times;</div>
     </div>
   <div class="popup-body">
     <form class="needs-validation" novalidate>
       <lable for="passwordtext">Enter your Password</label><br>
         <div>
-          <input type="password" placeholder="Password" class="form-control element" id="passwordtext" required>
+          <input type="password" placeholder="Password" class="form-control element" id="passwordtextMeet" required>
           <div class="invalid-feedback">This field can't be empty</div>
         </div>
         <!-- <br> -->
         <input type="checkbox" onclick="showPass()"><small> Show Password</small>
     </form>
-    <br><br><div class="btn btn-outline-success btn-copy" onclick="getcode()">Get code</div>
+    <br><br><div class="btn btn-outline-success btn-copy" onclick="getcodeMeet()">Get code</div>
   </div>
 </div>
 
+<!-- Popup For Copying Code (Zoom) -->
+
+<div class="popup" id="copy-popup-zoom">
+  <div class="popup-header">
+    <div class="title">Copying Code (Zoom)</div>
+    <div class="close-button" data-close-button>&times;</div>
+    </div>
+  <div class="popup-body">
+    <form class="needs-validation" novalidate>
+      <lable for="passwordtext">Enter your Password</label><br>
+        <div>
+          <input type="password" placeholder="Password" class="form-control element" id="passwordtextZoom" required>
+          <div class="invalid-feedback">This field can't be empty</div>
+        </div>
+        <!-- <br> -->
+        <input type="checkbox" onclick="showPass()"><small> Show Password</small>
+    </form>
+    <br><br><div class="btn btn-outline-success btn-copy" onclick="getcodeZoom()">Get code</div>
+  </div>
+</div>
+
+<!-- Popup For Copying Code (Microsoft Teams) -->
+
+<div class="popup" id="copy-popup-team">
+  <div class="popup-header">
+    <div class="title">Copying Code (Microsoft Teams)</div>
+    <div class="close-button" data-close-button>&times;</div>
+    </div>
+  <div class="popup-body">
+    <form class="needs-validation" novalidate>
+      <lable for="passwordtext">Enter your Password</label><br>
+        <div>
+          <input type="password" placeholder="Password" class="form-control element" id="passwordtextTeam" required>
+          <div class="invalid-feedback">This field can't be empty</div>
+        </div>
+        <!-- <br> -->
+        <input type="checkbox" onclick="showPass()"><small> Show Password</small>
+    </form>
+    <br><br><div class="btn btn-outline-success btn-copy" onclick="getcodeTeam()">Get code</div>
+  </div>
+</div>
+
+
 <!-- state -->
-<input type="text" style="display: none;visibility: hidden;" value="<%= username %>" id="user_name">
-<input type="text" style="display: none;visibility: hidden;" value="" id="pass_word">
+<!-- google Meet -->
+<input type="text" style="display: none;visibility: hidden;" value="<%= username %>" id="user_name_meet">
+<input type="text" style="display: none;visibility: hidden;" value="" id="pass_word_meet">
+<!-- Zoom -->
+<input type="text" style="display: none;visibility: hidden;" value="<%= username %>" id="user_name_zoom">
+<input type="text" style="display: none;visibility: hidden;" value="" id="pass_word_zoom">
+<!-- Microsoft Teams -->
+<input type="text" style="display: none;visibility: hidden;" value="<%= username %>" id="user_name_team">
+<input type="text" style="display: none;visibility: hidden;" value="" id="pass_word_team">
 
 <!-- Popup for editing -->
 
@@ -225,6 +276,14 @@ if(x)
           <br>
           <button class="btn btn-outline-success" type="submit">Edit</button>
     </form>
+  </div>
+</div>
+<!-- ---------------links popup for different platforms---------------------- -->
+<div class="link-body" id="links-popup">
+  <div class="popup-body link-div" id="#link-align">
+    <div class="links" data-target="#copy-popup-meet" data-close-link><span class="iconify" data-icon="logos-google-meet" data-inline="false" data-width="100px" data-height="100px"></span></div>
+    <div class="links" data-target="#copy-popup-zoom" data-close-link><span class="iconify" data-icon="grommet-icons:zoom" data-inline="false" data-width="100px" data-height="100px"></span></div>
+    <div class="links" data-target="#copy-popup-team" data-close-link><span class="iconify" data-icon="bx:bxl-microsoft-teams" data-inline="false" style="color: #4b53bc;" data-width="100px" data-height="100px"></span></div>
   </div>
 </div>
 

@@ -75,25 +75,25 @@ function openPopup(popup) {
 //   }
  
 
-  //Copy to clipboard
+  //Copy to clipboard (Google meet)
 
 
-  function getcode() {
-    var passwordtext = document.getElementById('passwordtext').value;
+  function getcodeMeet() {
+    var passwordtext = document.getElementById('passwordtextMeet').value;
      if(passwordtext)
      {
-        document.getElementById('pass_word').value= passwordtext;
-        copy();
+        document.getElementById('pass_word_meet').value= passwordtext;
+        copyMeet();
      }
      else
      {
-      document.getElementById('pass_word').value= 'error';
+      document.getElementById('pass_word_meet').value= 'error';
       
      }
   }
-  function copy() {
-    let username=document.getElementById('user_name').value;
-    let password=document.getElementById('pass_word').value;
+  function copyMeet() {
+    let username=document.getElementById('user_name_meet').value;
+    let password=document.getElementById('pass_word_meet').value;
     copyCode(`let c="";let dateMeet="";dateMeet+=new Date().toLocaleString("en-US");document.getElementsByClassName('uArJ5e UQuaGc kCyAyd QU4Gid foXzLb IeuGXd')[0].click();
     let taker=document.getElementsByClassName('GvcuGe')[0].childNodes[0].innerText;
     taker=taker.substring(0, taker.length-6);
@@ -149,6 +149,82 @@ function openPopup(popup) {
     }
     window.alert("Code copied")
     }
+
+// copy to clipboard for zoom
+    function getcodeZoom() {
+      var passwordtext = document.getElementById('passwordtextZoom').value;
+       if(passwordtext)
+       {
+          document.getElementById('pass_word_zoom').value= passwordtext;
+          copyZoom();
+       }
+       else
+       {
+        document.getElementById('pass_word_zoom').value= 'error';
+        
+       }
+    }
+    function copyZoom() {
+      let username=document.getElementById('user_name_zoom').value;
+      let password=document.getElementById('pass_word_zoom').value;
+      copyCode(`this is dummy for Zoom
+  `);
+  
+         function copyCode (str) {
+         var dummyElement = document.createElement('textarea');
+         // Set value (string to be copied)
+         dummyElement.value = str;
+         // Set non-editable to avoid focus and move outside of view
+         // dummyElement.setAttribute('readonly', '');
+         // dummyElement.style = {position: 'absolute', left: '-9999px'};
+         document.body.appendChild(dummyElement);
+         // Select text inside element
+         dummyElement.select();
+         // Copy text to clipboard
+         document.execCommand('copy');
+         // Remove temporary element
+         document.body.removeChild(dummyElement);
+      }
+      window.alert("Code copied")
+      }
+  
+      // copy to clipboard for Microsoft Team
+    function getcodeTeam() {
+      var passwordtext = document.getElementById('passwordtextTeam').value;
+       if(passwordtext)
+       {
+          document.getElementById('pass_word_team').value= passwordtext;
+          copyTeam();
+       }
+       else
+       {
+        document.getElementById('pass_word_team').value= 'error';
+        
+       }
+    }
+    function copyTeam() {
+      let username=document.getElementById('user_name_team').value;
+      let password=document.getElementById('pass_word_team').value;
+      copyCode(`this is dummy for Microdoft Team
+  `);
+  
+         function copyCode (str) {
+         var dummyElement = document.createElement('textarea');
+         // Set value (string to be copied)
+         dummyElement.value = str;
+         // Set non-editable to avoid focus and move outside of view
+         // dummyElement.setAttribute('readonly', '');
+         // dummyElement.style = {position: 'absolute', left: '-9999px'};
+         document.body.appendChild(dummyElement);
+         // Select text inside element
+         dummyElement.select();
+         // Copy text to clipboard
+         document.execCommand('copy');
+         // Remove temporary element
+         document.body.removeChild(dummyElement);
+      }
+      window.alert("Code copied")
+      }
 
     // SEARCHING
 
@@ -256,3 +332,57 @@ function showPass() {
     pass.type = 'password';
   }
 }
+
+
+// ----------links popup-------------
+
+const openPopupButtonlinks = document.querySelectorAll('[data-target]');
+const closePopupButtonlinks = document.querySelectorAll('[data-close-link]');
+const overlaylinks = document.getElementById('overlay');
+
+openPopupButtonlinks.forEach(button => {
+    button.addEventListener('click', () => {
+        const popuplinks = document.querySelector(button.dataset.target);
+        openPopuplinks(popuplinks);
+    });
+});
+
+
+closePopupButtonlinks.forEach(button => {
+  button.addEventListener('click', () => {
+      const popuplinks = button.closest('.link-body');
+      closePopuplinks(popuplinks);
+  });
+});
+
+overlaylinks.addEventListener('click', () => {
+const popuplinks = document.querySelectorAll('.link-body.active')
+popuplinks.forEach(popuplinks => {
+  closeoverlay(popuplinks);
+})
+})
+
+function openPopuplinks(popuplinks) {
+  if (popuplinks == null) return;
+  popuplinks.classList.add('active');
+  overlaylinks.classList.add('active');
+}
+
+function closePopuplinks(popuplinks) {
+  if (popuplinks == null) return;
+  popuplinks.classList.remove('active');
+  // overlaylinks.classList.remove('active');
+}
+
+function closeoverlay(popuplinks) {
+  if (popuplinks == null){
+    overlaylinks.classList.remove('active');
+    return;
+  } 
+  popuplinks.classList.remove('active');
+  overlaylinks.classList.remove('active');
+}
+// function closeOverlay() {
+//   overlaylinks.classList.remove('active');
+// }
+
