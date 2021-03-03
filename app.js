@@ -54,7 +54,7 @@ let filter={};
 filter={
     'username':req.user.username,
 }
-   attendanceLib.findbyId(filter,function(err,docs){
+   attendanceLib.find(filter,function(err,docs){
       if(err){
           return res.send(err)
       }else if(_.isEmpty(docs)){
