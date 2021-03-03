@@ -108,7 +108,10 @@ function absent(e) {
 //     html2pdf().from(attendance).save();
 //   })
 function convert() {
-  const attendance = document.getElementsById("attendance");
-  console.log(attendance);
-  html2pdf().from(attendance).save();
+  
+  //-html2pdf().from(attendance).save();
+  var element = document.getElementById('AttendanceMeetData');
+  console.log(element);
+  html2pdf(element);
+
 }

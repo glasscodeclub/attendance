@@ -76,7 +76,7 @@ filter={
 
 
 
-app.get("/home/:id/details", function(req, res){
+app.get("/home/:id/details",isLoggedIn, function(req, res){
     const filter ={
         _id: req.params.id
     }
@@ -92,7 +92,7 @@ app.get("/home/:id/details", function(req, res){
     
 });
 
-app.post("/home/:id/addParticipant", function(req, res){
+app.post("/home/:id/addParticipant",isLoggedIn, function(req, res){
 if(1){
     const filter ={
     _id: req.params.id
@@ -140,7 +140,7 @@ else{
 });
 
 
-app.post("/home/:id/details/delete/:idx", function(req, res){
+app.post("/home/:id/details/delete/:idx",isLoggedIn, function(req, res){
     const filter ={
         _id: req.params.id
     }
@@ -186,7 +186,7 @@ app.post("/home/:id/details/delete/:idx", function(req, res){
 });
 });
 
-app.post("/home/:id/delete", function(req, res){
+app.post("/home/:id/delete", isLoggedIn,function(req, res){
     const filter ={
         _id: req.params.id
     }
@@ -199,7 +199,7 @@ app.post("/home/:id/delete", function(req, res){
     });
 })
 
-app.post("/home/edit", function(req, res){
+app.post("/home/edit", isLoggedIn,function(req, res){
     const filter ={
         _id:req.body.atten_id
     }
@@ -218,7 +218,7 @@ app.post("/home/edit", function(req, res){
 })
 
 
-app.post("/home", function(req, res){
+app.post("/home",isLoggedIn, function(req, res){
  //   console.log(req.body);
     
     const Attendance = {
