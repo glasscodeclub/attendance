@@ -7,6 +7,7 @@
 
 <%- include("./partials/favicon.ejs") %>
 <%- include("./partials/header.ejs",{loc: "home"}); %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
 <script>
   var x =`<%- JSON.stringify(attendanceData) %>`;
    var y=JSON.parse(x)
@@ -14,10 +15,12 @@
    console.log(y,typeof(y))
  console.log(z,typeof(z))
  function edit(e){
+  var datestring = moment(y[e.id].attendance_date).format('YYYY-MM-DD');
    document.getElementById('sno_link').value= Number(e.id)+ Number(1);
    document.getElementById('meet_url').value=y[e.id].url; 
    document.getElementById('participants').value=y[e.id].data.length; 
    document.getElementById('atten_id').value=y[e.id]._id;
+   document.getElementById('meet_date').value=datestring;
    console.log(e);
    
  }
@@ -260,7 +263,7 @@ if(x)
         </div>
         <br>
         <div>
-          <input type="date" name= "entered_date" class="form-control element" required>
+          <input type="date" name= "entered_date" class="form-control element" required id="meet_date" >
             <div class="invalid-feedback">This Field can't be empty</div>
           </div>
           <br>

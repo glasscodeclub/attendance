@@ -99,3 +99,19 @@ function absent(e) {
     p.checked= true;
   }
 }
+
+
+// const download = document.getElementById("download");
+//   download.addEventListener("click", ()=> {
+//     const attendance = this.document.getElementsByClassName("attendance");
+//     console.log(attendance);
+//     html2pdf().from(attendance).save();
+//   })
+function convert() {
+  
+  //-html2pdf().from(attendance).save();
+  var element = document.getElementById('AttendanceMeetData');
+  console.log(element);
+  html2pdf(element);
+
+}
