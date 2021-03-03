@@ -99,3 +99,16 @@ function absent(e) {
     p.checked= true;
   }
 }
+
+
+// const download = document.getElementById("download");
+//   download.addEventListener("click", ()=> {
+//     const attendance = this.document.getElementsByClassName("attendance");
+//     console.log(attendance);
+//     html2pdf().from(attendance).save();
+//   })
+function convert() {
+  const attendance = document.getElementsById("attendance");
+  console.log(attendance);
+  html2pdf().from(attendance).save();
+}

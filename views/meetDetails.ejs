@@ -4,6 +4,8 @@
 <link rel="stylesheet" href="../../public/css/header.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js" integrity="sha512-ICHkAOXzVDEkL5xkXjAWRV/hx6Bq4ID/uhRcnj9zS7QCdCbhVtfgjwt/vTfUBtW1wzBkErImU0huK3LDVeEr8g==" crossorigin="anonymous"></script>
+
 
 <%- include("./partials/favicon.ejs") %>
 <%- include("./partials/header.ejs", {loc: "details"}); %>
@@ -55,7 +57,7 @@
     </div>
     <hr id="break">
     <div class="sidebar-body">
-      <div class="list-group">
+      <div class="list-group attendance" id="attendance">
         <a href="#" class="list-group-item list-group-item-action">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">Meetlink</h5>
@@ -83,9 +85,14 @@
       </div>
     </div>
   </div>
+
+  <!-- Download to pdf -->
+
+  <!-- <button class="btn btn-outline-success" style="z-index: 10; position: absolute; right: 10px; top: 110px;">Download to PDF</button> -->
+
   <div class="container">
     <div class="wrapper">
-      <table class="table table-bordered table-success table-striped table-hover table-responsive-lg" id="tab">
+      <table class="table table-bordered table-success table-striped table-hover table-responsive-lg attendance" id="tab">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -105,8 +112,11 @@
           <%}%>
           </tbody>
         </table>
-        <button class="btn btn-outline-success" data-target="#adding-students">Add Participant</button>
-    </div>
+        <div class="buttons">
+          <button class="btn btn-outline-success" data-target="#adding-students">+ Add Participant</button>
+          <button class="btn btn-outline-success" id="download">Download to PDF</button>
+        </div>
+      </div>
   </div>
 </div>
 
