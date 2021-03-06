@@ -319,9 +319,12 @@ function openPopup(popup) {
         }
       }
     } 
-    
-function showPass() {
-  let pass = document.getElementById('passwordtext');
+ 
+
+    //show password for meet 
+
+function showPassMeet() {
+  let pass = document.getElementById('passwordtextMeet');
 
   if(pass.type == 'password')
   {
@@ -333,6 +336,35 @@ function showPass() {
   }
 }
 
+//show password for zoom
+
+function showPassZoom() {
+  let pass = document.getElementById('passwordtextZoom');
+
+  if(pass.type == 'password')
+  {
+    pass.type = 'text';
+  }
+  else
+  {
+    pass.type = 'password';
+  }
+}
+
+//show password for Microsoft Team
+
+function showPassTeam() {
+  let pass = document.getElementById('passwordtextTeam');
+
+  if(pass.type == 'password')
+  {
+    pass.type = 'text';
+  }
+  else
+  {
+    pass.type = 'password';
+  }
+}
 
 // ----------links popup-------------
 
